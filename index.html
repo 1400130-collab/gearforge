@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GearForge — laser-ready gear, pulley &amp; spline generator</title>
+<meta name="description" content="Standards-correct involute spur gears, internal gears, racks, timing-belt pulleys and ISO 4156 splines — exported as laser-ready, kerf-compensated SVG and DXF.">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚙️</text></svg>">
+</head>
+<body>
+<header>
+  <div class="brand">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+      <path d="M12 8.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Z"/>
+      <path d="M13.9 2.6h-3.8l-.5 2.4a7.4 7.4 0 0 0-1.9 1.1L5.4 5.3 3.5 8.6l1.8 1.6a7.5 7.5 0 0 0 0 2.2l-1.8 1.6 1.9 3.3 2.3-.8a7.4 7.4 0 0 0 1.9 1.1l.5 2.4h3.8l.5-2.4a7.4 7.4 0 0 0 1.9-1.1l2.3.8 1.9-3.3-1.8-1.6a7.5 7.5 0 0 0 0-2.2l1.8-1.6-1.9-3.3-2.3.8a7.4 7.4 0 0 0-1.9-1.1l-.5-2.4Z"/>
+    </svg>
+    <h1>Gear<span>Forge</span></h1>
+  </div>
+  <p class="tagline">Standards-correct gears, timing pulleys &amp; splines — laser-ready SVG / DXF</p>
+  <nav class="links">
+    <a id="ghLink" href="https://github.com/1400130-collab/gearforge" target="_blank" rel="noopener">
+      <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+      Source · MIT
+    </a>
+  </nav>
+</header>
+
+<main>
+  <aside id="sidebar">
+    <nav id="typeTabs" aria-label="Part type"></nav>
+    <div id="presetRow">
+      <label for="presetSel">Preset</label>
+      <select id="presetSel"><option value="">— choose a preset —</option></select>
+    </div>
+    <form id="paramForm" autocomplete="off"></form>
+    <section id="warnings" aria-live="polite"></section>
+  </aside>
+
+  <section id="stage">
+    <div id="toolbar">
+      <button id="btnFit" title="Fit part to view">⤢ Fit</button>
+      <label id="pairCtl" class="hidden"><input type="checkbox" id="chkPair"> Mating gear</label>
+      <label id="animCtl" class="hidden"><input type="checkbox" id="chkAnim"> Animate mesh</label>
+      <span id="zoomInfo"></span>
+      <span class="spacer"></span>
+      <button id="btnSVG" class="primary" title="Download laser-ready SVG (mm-true, kerf-compensated)">⬇ SVG</button>
+      <button id="btnDXF" class="primary" title="Download DXF R12 (mm, layers CUT/ENGRAVE)">⬇ DXF</button>
+      <button id="btnReport" title="Download dimension &amp; inspection report">⬇ Report</button>
+    </div>
+    <div id="viewport">
+      <svg id="preview" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Part preview"></svg>
+      <div id="errBox" class="hidden"></div>
+    </div>
+    <details id="reportBox" open>
+      <summary>Dimensions &amp; inspection</summary>
+      <table id="reportTable"></table>
+    </details>
+  </section>
+</main>
+
+<footer>
+  <p>All dimensions in <b>millimetres</b>. Layers: <span class="cutdot"></span><b>CUT</b> (red) ·
+  <span class="engdot"></span><b>ENGRAVE</b> (blue). Kerf compensation offsets the beam path by kerf/2
+  — outer contours grow, holes shrink; measure your machine's kerf on scrap first.
+  Gears: ISO 21771 / DIN 867 basic rack, true trochoidal (rack-generated) root fillets.
+  Pulleys: SDP/SI groove profiles. Splines: ISO 4156 / ANSI B92.1, 30° pressure angle.</p>
+</footer>
+
+<script src="src/geometry.js"></script>
+<script src="src/involute.js"></script>
+<script src="src/pulley.js"></script>
+<script src="src/spline.js"></script>
+<script src="src/exporters.js"></script>
+<script src="src/app.js"></script>
+</body>
+</html>
