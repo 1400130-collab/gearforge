@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Timing-belt pulley generator — GT2, HTD, T5, MXL SVG / DXF — GearForge</title>
+<meta name="description" content="Generate timing-belt pulleys (GT2, GT3, HTD 3M/5M/8M, T2.5/T5/T10, AT5, MXL, XL, H) as laser-ready or 3D-printable SVG/DXF. Correct groove profiles and pitch-line differential, free in your browser.">
+<link rel="canonical" href="https://1400130-collab.github.io/gearforge/guides/timing-belt-pulley-generator.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Timing-belt pulley generator — GT2, HTD, T5, MXL SVG / DXF">
+<meta property="og:description" content="14 belt profiles with correct groove geometry and pitch-line differential. Export SVG/DXF free, in your browser.">
+<meta property="og:url" content="https://1400130-collab.github.io/gearforge/guides/timing-belt-pulley-generator.html">
+<meta property="og:image" content="https://1400130-collab.github.io/gearforge/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://1400130-collab.github.io/gearforge/og-image.png">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚙️</text></svg>">
+<link rel="stylesheet" href="guide.css">
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org","@type":"HowTo",
+  "name":"How to generate a timing-belt pulley",
+  "description":"Generate a GT2/HTD/T-series timing-belt pulley and export laser-ready or 3D-printable SVG/DXF.",
+  "tool":[{"@type":"HowToTool","name":"GearForge (free in-browser pulley generator)"}],
+  "step":[
+    {"@type":"HowToStep","name":"Choose the belt profile","text":"Match the profile to your belt: GT2 2mm for 3D printers, HTD 5M for higher torque, T5/AT5 for linear systems."},
+    {"@type":"HowToStep","name":"Set the tooth count","text":"Enter the number of teeth; outside diameter follows OD = z·p/π − 2·PLD."},
+    {"@type":"HowToStep","name":"Pick the bore","text":"Choose round, keyed, D-flat, hex or square, sized to your shaft."},
+    {"@type":"HowToStep","name":"Export SVG or DXF","text":"Export mm-true SVG/DXF and cut or print the pulley."}
+  ]
+}
+</script>
+</head>
+<body>
+<header class="site">
+  <a class="brand" href="../index.html">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 8.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Z"/><path d="M13.9 2.6h-3.8l-.5 2.4a7.4 7.4 0 0 0-1.9 1.1L5.4 5.3 3.5 8.6l1.8 1.6a7.5 7.5 0 0 0 0 2.2l-1.8 1.6 1.9 3.3 2.3-.8a7.4 7.4 0 0 0 1.9 1.1l.5 2.4h3.8l.5-2.4a7.4 7.4 0 0 0 1.9-1.1l2.3.8 1.9-3.3-1.8-1.6a7.5 7.5 0 0 0 0-2.2l1.8-1.6-1.9-3.3-2.3.8a7.4 7.4 0 0 0-1.9-1.1l-.5-2.4Z"/></svg>
+    Gear<span>Forge</span>
+  </a>
+  <nav>
+    <a href="index.html">Guides</a>
+    <a href="../index.html">Open the app →</a>
+  </nav>
+</header>
+<main>
+  <div class="crumb"><a href="../index.html">GearForge</a> › <a href="index.html">Guides</a> › Timing-belt pulley generator</div>
+  <h1>Timing-belt pulley generator: GT2, HTD, T5 and more</h1>
+  <p class="lede">Whether you're building a 3D printer, a CoreXY, a camera slider or a small conveyor, the pulley has to match the belt's tooth profile exactly — get the groove shape or the pitch-line differential wrong and the belt skips or binds. GearForge ships 14 standard belt profiles with the correct dimensional groove data, and exports laser-ready or 3D-printable SVG/DXF.</p>
+
+  <a class="cta" href="../index.html">⚙️ Open the free pulley generator</a>
+
+  <h2>Which belt profile do I have?</h2>
+  <p>Pulleys are <em>not</em> interchangeable between profiles — you must match the belt. The common families:</p>
+  <table>
+    <tr><th>Profile</th><th>Pitch</th><th>Typical use</th></tr>
+    <tr><td>GT2 (2 mm)</td><td>2 mm</td><td>3D printers, small CoreXY, light positioning — the hobby default.</td></tr>
+    <tr><td>GT2 3 mm / GT3</td><td>3 mm</td><td>Higher load positioning, larger printers.</td></tr>
+    <tr><td>HTD 3M / 5M / 8M</td><td>3 / 5 / 8 mm</td><td>Torque transmission — CNC, robotics, drivetrains.</td></tr>
+    <tr><td>T2.5 / T5 / T10</td><td>2.5 / 5 / 10 mm</td><td>Metric trapezoidal — linear stages, automation.</td></tr>
+    <tr><td>AT5</td><td>5 mm</td><td>Reinforced T-series for higher force linear drives.</td></tr>
+    <tr><td>MXL / 40DP / XL / H</td><td>imperial</td><td>Legacy imperial machinery and kits.</td></tr>
+  </table>
+  <div class="callout"><strong>GT2 vs T-profile:</strong> GT2 uses a rounded (curvilinear) tooth that seats with almost no backlash — ideal for 3D-printer positioning. T5/T10 are trapezoidal and better at raw force transfer. Pick the one that matches your belt, not the "better" one.</div>
+
+  <h2>The one formula that matters: outside diameter</h2>
+  <p>A toothed pulley's outside diameter isn't <code>z × p / π</code> — that's the <em>pitch</em> diameter, which sits <em>inside</em> the belt. The real cut diameter is offset inward by twice the <strong>pitch-line differential (PLD)</strong>, the distance from the belt's tension cords to the tooth valley:</p>
+  <div class="callout"><code>OD = z · p / π − 2 · PLD</code></div>
+  <p>Every profile has its own PLD from the belt spec, and getting it right is what makes the belt track true. GearForge bakes in the SDP/SI dimensional values, so a GT2 20T pulley comes out at the commercial <strong>12.224&nbsp;mm</strong> OD automatically — you just enter the tooth count.</p>
+
+  <h2>Laser-cutting vs 3D-printing pulleys</h2>
+  <ul>
+    <li><strong>3D printing</strong> is the usual choice for pulleys — the full tooth height prints cleanly and you can add a flange. Export the SVG/DXF and extrude, or use the profile as a sketch.</li>
+    <li><strong>Laser cutting</strong> works for stacked-plate pulleys and idlers; enter your kerf so the groove pitch stays true. Acetal idlers cut on a CO₂ laser run smooth and quiet.</li>
+  </ul>
+
+  <h2>Step by step</h2>
+  <ol>
+    <li>Open the <a href="../index.html">generator</a> and pick <strong>Pulley</strong> (or load the <em>“GT2 20T idler”</em> preset).</li>
+    <li>Select your belt profile and enter the tooth count. The outside diameter and groove geometry update live.</li>
+    <li>Tune belt-fit clearance if your printer/laser runs tight, then choose a bore — round, keyed (DIN 6885), D-flat, hex or square.</li>
+    <li>Export <strong>SVG</strong> or <strong>DXF R12</strong> with mm-true dimensions and CUT/ENGRAVE layers.</li>
+  </ol>
+
+  <a class="cta" href="../index.html">⚙️ Generate a pulley now — free, no signup</a>
+
+  <div class="related">
+    <h2>Related guides</h2>
+    <div class="cards">
+      <a class="card" href="laser-cut-involute-gears.html"><h3>Laser-cut involute gears →</h3><p>Modules, kerf, undercut and root fillets done right.</p></a>
+      <a class="card" href="involute-spline-generator.html"><h3>Involute spline generator →</h3><p>ISO 4156 shaft and hub cross-sections.</p></a>
+    </div>
+  </div>
+</main>
+<footer class="site">GearForge — standards-correct, laser-ready gear/pulley/spline generator. MIT-licensed, runs in your browser. <a href="../index.html">Open the app</a> · <a href="https://github.com/1400130-collab/gearforge">Source</a></footer>
+</body>
+</html>

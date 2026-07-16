@@ -5,6 +5,10 @@ laser-ready, kerf-compensated SVG / DXF. Zero dependencies, runs in your browser
 
 **Live app → https://1400130-collab.github.io/gearforge/**
 
+<p align="center">
+  <img src="docs/demo.gif" alt="A generated involute gear pair (z20 : z40) meshing — real GearForge output" width="560">
+</p>
+
 | Meshing pair (m2, z20 : z40) | Undercut pinion (z8, trochoidal root) | GT2 20T pulley | ISO 4156 spline hub |
 |---|---|---|---|
 | ![pair](docs/pair.svg) | ![undercut](docs/spur_z8_undercut.svg) | ![gt2](docs/gt2_20.svg) | ![spline](docs/spline_hub.svg) |

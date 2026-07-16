@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1200px; height: 630px; overflow: hidden; }
+  body {
+    display: flex; align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, sans-serif;
+    color: #e6ebf2;
+    background: #0f1216 radial-gradient(1200px 700px at 72% -12%, #16202c 0%, #0f1216 62%);
+  }
+  .left { width: 600px; padding: 0 0 0 72px; }
+  .brand { display: flex; align-items: center; gap: 16px; margin-bottom: 26px; }
+  .brand .cog { width: 62px; height: 62px; color: #58a6ff; }
+  .brand h1 { font-size: 68px; font-weight: 800; letter-spacing: -1.5px; }
+  .brand h1 span { color: #58a6ff; }
+  .tag { font-size: 30px; line-height: 1.28; font-weight: 600; color: #ffffff; margin-bottom: 26px; }
+  .tag b { color: #6cb2ff; }
+  ul { list-style: none; display: flex; flex-wrap: wrap; gap: 10px 12px; margin-bottom: 30px; max-width: 560px; }
+  li { font-size: 19px; color: #b7c1cf; background: #1c232d; border: 1px solid #2a3441;
+       padding: 8px 14px; border-radius: 999px; }
+  li b { color: #e6ebf2; font-weight: 600; }
+  .url { font-family: "SF Mono", ui-monospace, Menlo, monospace; font-size: 22px; color: #58a6ff; }
+  .right { position: relative; flex: 1; height: 100%; display: flex; align-items: center; justify-content: center; }
+  #gear { width: 520px; filter: drop-shadow(0 0 24px rgba(88,166,255,.25)); }
+  #gear #CUT path, #gear g[id="CUT"] path { stroke: #ff5c5c !important; stroke-width: 0.45 !important; }
+  #gear #ENGRAVE *, #gear g[id="ENGRAVE"] * { stroke: #4fa3ff !important; stroke-width: 0.35 !important; }
+  .badge { position: absolute; top: 60px; right: 64px; font-size: 18px; font-weight: 700;
+    color: #4ec98f; background: rgba(78,201,143,.12); border: 1px solid rgba(78,201,143,.4);
+    padding: 7px 16px; border-radius: 999px; }
+</style>
+</head>
+<body>
+  <div class="left">
+    <div class="brand">
+      <svg class="cog" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+        <path d="M12 8.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Z"/>
+        <path d="M13.9 2.6h-3.8l-.5 2.4a7.4 7.4 0 0 0-1.9 1.1L5.4 5.3 3.5 8.6l1.8 1.6a7.5 7.5 0 0 0 0 2.2l-1.8 1.6 1.9 3.3 2.3-.8a7.4 7.4 0 0 0 1.9 1.1l.5 2.4h3.8l.5-2.4a7.4 7.4 0 0 0 1.9-1.1l2.3.8 1.9-3.3-1.8-1.6a7.5 7.5 0 0 0 0-2.2l1.8-1.6-1.9-3.3-2.3.8a7.4 7.4 0 0 0-1.9-1.1l-.5-2.4Z"/>
+      </svg>
+      <h1>Gear<span>Forge</span></h1>
+    </div>
+    <div class="tag">Standards-correct gears, timing pulleys &amp; splines —<br><b>laser-ready SVG / DXF</b>, kerf-compensated.</div>
+    <ul>
+      <li><b>Involute</b> spur / internal / rack</li>
+      <li><b>14</b> timing-belt profiles</li>
+      <li><b>ISO 4156</b> splines</li>
+      <li><b>Zero</b> dependencies</li>
+    </ul>
+    <div class="url">1400130-collab.github.io/gearforge</div>
+  </div>
+  <div class="right">
+    <div class="badge">Runs in your browser · MIT</div>
+    <div id="gear">loading…</div>
+  </div>
+<script>
+  fetch('./docs/pair.svg').then(r => r.text()).then(t => {
+    document.getElementById('gear').innerHTML = t;
+    const svg = document.querySelector('#gear svg');
+    if (svg) { svg.removeAttribute('width'); svg.removeAttribute('height'); svg.style.width = '520px'; svg.style.height = 'auto'; }
+    document.title = 'og-ready';
+  });
+</script>
+</body>
+</html>
